@@ -50,7 +50,7 @@ sock.command("igstalk", async (msg, q) => {
 		caption += `*Bio:* ${item.bio}\n`
 		caption += `*Link:* https://instagram.com/${q[0].replace(/^@/, '')}`
 		const buff = await getBuffer(item.profile)
-		await msg.sendPhoto(msg.chat.id, buff, caption)
+		await msg.sendPhoto(msg.chat.id, {photo: item.profile, caption})
 	}).catch(async (err) => {
 		if (err?.response?.status === 404) {
 			return msg.reply("Username tidak ditemukan!")
