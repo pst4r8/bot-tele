@@ -1,5 +1,6 @@
 import 'dotenv/config'
 import { makeTelegramSocket } from "tg-socket"
+import axios from 'axios';
 
 const sock = makeTelegramSocket({
 	token: process.env.BOT_TOKEN,
