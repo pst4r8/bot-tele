@@ -21,11 +21,7 @@ sock.command("start", async msg => {
 sock.command(">", async (msg, q) => {
 	try {
 		let code = q[0].slice(2)
-		if (code.includes('await')) {
-			var evaled = await eval(`(async () => { ${code} })()`)
-		} else {
-			var evaled = await eval(code)
-		}
+		var evaled = await eval(code)
 		if (typeof evaled !== 'string') evaled = inspect(evaled)
 		await msg.reply(evaled)
 	} catch (err) {
