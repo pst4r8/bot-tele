@@ -1,4 +1,4 @@
-const { makeTelegramSocket } = require("@xrelly-spec/telegram-socket")
+const { makeTelegramSocket } = require("tg-socket")
 
 const bot = makeTelegramSocket({
   token: "5789636012:AAEFEqHuqONCH7B_jckNWVMHBx5sLqMB5mU",
