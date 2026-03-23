@@ -1,7 +1,7 @@
 const { makeTelegramSocket } = require("@xrelly-spec/telegram-socket")
 
 const bot = makeTelegramSocket({
-  token: process.env.BOT_TOKEN,
+  token: "5789636012:AAEFEqHuqONCH7B_jckNWVMHBx5sLqMB5mU",
   polling: true
 })
 
