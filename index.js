@@ -1,12 +1,13 @@
-const { makeTelegramSocket } = require("tg-socket")
+import 'dotenv/config'
+import { makeTelegramSocket } from "tg-socket"
 
-const bot = makeTelegramSocket({
+const sock = makeTelegramSocket({
   token: process.env.BOT_TOKEN,
   polling: true
 })
 
-bot.command("start", async msg => {
+sock.command("start", async msg => {
   await msg.reply("Hello from Telegram-Socket 👋")
 })
 
-bot.start()
+sock.start()
