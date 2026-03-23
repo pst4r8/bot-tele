@@ -18,6 +18,21 @@ sock.command("start", async msg => {
 	await msg.reply("Hello from Telegram-Socket 👋")
 })
 
+sock.command(">", async (msg, q) => {
+	try {
+		let code = q[0].slice(2)
+		if (code.includes('await')) {
+			var evaled = await eval(`(async () => { ${code} })()`)
+		} else {
+			var evaled = await eval(code)
+		}
+		if (typeof evaled !== 'string') evaled = inspect(evaled)
+		await msg.reply(evaled)
+	} catch (err) {
+		return msg.reply(String(err))
+	}
+})
+
 sock.command("igstalk", async (msg, q) => {
 	console.log(JSON.stringify(msg,null,2))
 	console.log(JSON.stringify(q,null,2))
