@@ -7,6 +7,7 @@ const sock = makeTelegramSocket({
 })
 
 sock.command("start", async msg => {
+	console.log(JSON.stringify(msg,null,2))
   await msg.reply("Hello from Telegram-Socket 👋")
 })
 
