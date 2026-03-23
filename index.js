@@ -7,6 +7,13 @@ const sock = makeTelegramSocket({
 	polling: true
 })
 
+const getBuffer = async (url) => {
+	const res = await axios.get(url, {
+		responseType: "arraybuffer"
+	})
+	return Buffer.from(res.data)
+}
+
 sock.command("start", async msg => {
 	await msg.reply("Hello from Telegram-Socket 👋")
 })
@@ -30,7 +37,8 @@ sock.command("igstalk", async (msg, q) => {
 		caption += `*Posts:* ${item.post}\n`
 		caption += `*Bio:* ${item.bio}\n`
 		caption += `*Link:* https://instagram.com/${q[0].replace(/^@/, '')}`
-		await msg.sendPhoto(msg.chat.id, item.profile, caption)
+		const buff = await getBuffer(item.profile)
+		await msg.sendPhoto(msg.chat.id, buff, caption)
 	}).catch(async (err) => {
 		if (err?.response?.status === 404) {
 			return msg.reply("Username tidak ditemukan!")
