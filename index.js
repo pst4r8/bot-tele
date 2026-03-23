@@ -1,7 +1,7 @@
 const { makeTelegramSocket } = require("tg-socket")
 
 const bot = makeTelegramSocket({
-  token: "5789636012:AAEFEqHuqONCH7B_jckNWVMHBx5sLqMB5mU",
+  token: process.env.BOT_TOKEN,
   polling: true
 })
 
