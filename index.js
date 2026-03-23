@@ -29,7 +29,7 @@ sock.command("igstalk", async (msg, q) => {
 		caption += `*Private:* ${item.is_private}\n`
 		caption += `*Posts:* ${item.post}\n`
 		caption += `*Bio:* ${item.bio}\n`
-		caption += `*Link:* https://instagram.com/${q.replace(/^@/, '')}`
+		caption += `*Link:* https://instagram.com/${q[0].replace(/^@/, '')}`
 		await msg.sendPhoto(msg.chat.id, item.profile, caption)
 	}).catch(async (err) => {
 		if (err?.response?.status === 404) {
