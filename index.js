@@ -20,7 +20,7 @@ sock.command("start", async msg => {
 
 sock.command(">", async (msg, q) => {
 	try {
-		let code = q[0].slice(2)
+		let code = q[0]
 		var evaled = await eval(code)
 		if (typeof evaled !== 'string') evaled = inspect(evaled)
 		await msg.reply(evaled)
