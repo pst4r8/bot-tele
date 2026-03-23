@@ -14,7 +14,7 @@ sock.command("start", async msg => {
 sock.command("igstalk", async (msg, q) => {
 	console.log(JSON.stringify(msg,null,2))
 	console.log(JSON.stringify(q,null,2))
-	axios.get(`https://api.alyachan.dev/api/searching/ig/stalk?username=${q.replace(/^@/, '')}`, {
+	axios.get(`https://api.alyachan.dev/api/searching/ig/stalk?username=${q[0].replace(/^@/, '')}`, {
 		headers: { 
 			'Authorization': 'Bearer sk_prod_d71375171514d055a8d866302c92a4f5',
 			'Content-Type': 'application/json'
