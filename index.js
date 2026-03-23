@@ -35,7 +35,7 @@ sock.command("igstalk", async (msg, q) => {
 		if (err?.response?.status === 404) {
 			return msg.reply("Username tidak ditemukan!")
 		} else {
-			console.error(`*[${command}] [${moment().tz('Asia/Jakarta').format('HH:mm:ss')}]* => ${String(err)}`)
+			console.error(String(err))
 			await msg.reply("Terjadi error pada fitur!")
 		}
 	})
